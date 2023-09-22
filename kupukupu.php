@@ -1,52 +1,47 @@
 <?php
-$arr = array(1,2,3,4,5);
-for($i=0; $i<count($arr); $i++){
-    for($j=0; $j<=$i; $j++){
-        print $arr[$j];
+$kaku = array(1, 2, 3, 4, 5);
+$n = count($kaku);
+ 
+for ($i = 0; $i < $n; $i++) {
+    for ($j = 0; $j <= $i; $j++) {
+        echo $kaku[$j];
     }
-    for($j=count($arr)-1;$j>$i;$j--){
+    for($j=$n-1;$j>$i;$j--){
         print " ";
     }
-    for($j=count($arr)-2;$j>$i;$j--){
+    for($j=$n-2;$j>$i;$j--){
         print " ";
     }
-    $newArr = [];
-    for($j=0; $j<=$i; $j++){
-        array_unshift($newArr, $arr[$j]);
-    }
-    $newArr2 = $newArr;
-    array_shift($newArr2);
-    if($i != count($arr)-1){
-        for($j=0; $j<=$i; $j++){
-            print $newArr[$j];
-        }
-    }else{
-        for($j=0; $j<$i; $j++){
-            print $newArr2[$j];
+    if($i != $n-1){
+        for ($l = $i; $l >= 0; $l--) {
+            echo $kaku[$l];
         }
     }
-    print "\n";
-}
+    else{
+        for ($l = $i; $l >= 1; $l--) {
+            echo $kaku[$l-1];
+        }
+    }
+    
+    echo PHP_EOL;
+} 
 
-$counter = count($arr)-1;
-for($i=1; $i<count($arr); $i++){
-    for($j=0; $j<count($arr)-$i; $j++){
-        print $arr[$j];
+for ($i = $n - 2; $i >= 0; $i--) { 
+    for ($j = 0; $j <= $i; $j++) {
+        echo $kaku[$j];
     }
-    for($j=1; $j<=$i; $j++){
+
+    for($j=$n-1;$j>$i;$j--){
         print " ";
     }
-    for($j=2; $j<=$i; $j++){
+    for($j=$n-2;$j>$i;$j--){
         print " ";
     }
-    $newArr = [];
-    for($j=0;$j<$counter;$j++){
-        array_unshift($newArr, $arr[$j]);
+    
+    for ($l = $i; $l >= 0; $l--) {
+        echo $kaku[$l];
     }
-    for($j=0;$j<$counter;$j++){
-        print $newArr[$j];
-    }
-    $counter--;
-    print "\n";
+
+    echo PHP_EOL;
 }
 ?>
